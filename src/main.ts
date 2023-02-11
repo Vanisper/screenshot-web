@@ -54,6 +54,7 @@ export default class ScreenShot {
   // 截图工具栏画笔选项dom
   private optionController: HTMLDivElement | null | undefined;
   private optionIcoController: HTMLDivElement | null | undefined;
+  // 裁剪框左上角大小显示
   private cutBoxSizeContainer: HTMLDivElement | null | undefined;
   private plugInParameters: PlugInParameters;
   private wrcReplyTime = 500; // 原理：开启屏幕分享的"一瞬间"（也就是这里的500ms时间内）,将视频流内容写入到canvas中,之后就关闭屏幕获取
@@ -761,6 +762,7 @@ export default class ScreenShot {
     this.textInputController = this.data.getTextInputController() as HTMLDivElement | null;
     this.optionController = this.data.getOptionController() as HTMLDivElement | null;
     this.optionIcoController = this.data.getOptionIcoController() as HTMLDivElement | null;
+    // 左上角显示裁剪容器大小
     this.cutBoxSizeContainer = this.data.getCutBoxSizeContainer() as HTMLDivElement | null;
   }
 
@@ -1067,6 +1069,9 @@ export default class ScreenShot {
       // 装载截图的dom为null则退出
       if (this.screenShotContainer == null) return;
       // 将用户传递的图片绘制到图片容器里
+      console.log(this.drawGraphPosition);
+      console.log(this.screenShotImageController.width);
+      console.log(this.screenShotImageController);
       this.screenShotImageController
         .getContext("2d")
         ?.drawImage(

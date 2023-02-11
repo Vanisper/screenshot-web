@@ -16239,6 +16239,7 @@ var main_ScreenShot = /*#__PURE__*/function () {
   // 截图区域画布
   // 文本区域dom
   // 截图工具栏画笔选项dom
+  // 裁剪框左上角大小显示
   // 原理：开启屏幕分享的"一瞬间"（也就是这里的500ms时间内）,将视频流内容写入到canvas中,之后就关闭屏幕获取
   // 图形位置参数
   // 临时图形位置参数
@@ -17011,7 +17012,8 @@ var main_ScreenShot = /*#__PURE__*/function () {
       this.toolController = this.data.getToolController();
       this.textInputController = this.data.getTextInputController();
       this.optionController = this.data.getOptionController();
-      this.optionIcoController = this.data.getOptionIcoController();
+      this.optionIcoController = this.data.getOptionIcoController(); // 左上角显示裁剪容器大小
+
       this.cutBoxSizeContainer = this.data.getCutBoxSizeContainer();
     }
   }, {
@@ -17206,6 +17208,9 @@ var main_ScreenShot = /*#__PURE__*/function () {
         // 装载截图的dom为null则退出
         if (_this3.screenShotContainer == null) return; // 将用户传递的图片绘制到图片容器里
 
+        console.log(_this3.drawGraphPosition);
+        console.log(_this3.screenShotImageController.width);
+        console.log(_this3.screenShotImageController);
         (_this3$screenShotImag = _this3.screenShotImageController.getContext("2d")) === null || _this3$screenShotImag === void 0 ? void 0 : _this3$screenShotImag.drawImage(imgContainer, 0, 0, _this3.screenShotImageController.width, _this3.screenShotImageController.height); // 初始化截图容器
 
         _this3.initScreenShot(triggerCallback, context, _this3.screenShotImageController);

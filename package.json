@@ -7,10 +7,12 @@
   "types": "dist/type/main.d.ts",
   "publisher": "magicalprogrammer@qq.com",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name screenShotPlugin src/main.ts && del .\\dist\\demo.html",
+    "build": "vue-cli-service build --target lib --name screenShotPlugin src/main.ts && del .\\dist\\demo.html && xcopy .\\dist\\ .\\package\\dist\\ /s /y",
     "build-test": "vue-cli-service build --target lib --name screenShotPlugin src/main.ts",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "push:package": "yarn run build && cd package && git init && git add -A && git commit -m 'package' && git push -f https://github.com/Vanisper/screenshot-web master:screenshot-web",
+    "push_only:package": "cd package && git init && git add -A && git commit -m 'package' && git push -f https://github.com/Vanisper/screenshot-web master:screenshot-web"
   },
   "repository": {
     "type": "git",
@@ -68,5 +70,7 @@
   "dependencies": {
     "html2canvas": "1.4.1"
   },
-  "files": ["/dist"]
+  "files": [
+    "/dist"
+  ]
 }
