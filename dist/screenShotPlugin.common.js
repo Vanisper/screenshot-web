@@ -16773,6 +16773,7 @@ var main_ScreenShot = /*#__PURE__*/function () {
 
 
       _this.cutOutBoxBorderArr = saveBorderArrInfo(_this.data.getBorderSize(), _this.drawGraphPosition);
+      console.log(_this.cutOutBoxBorderArr);
 
       if (_this.screenShotContainer != null) {
         // 修改鼠标状态为拖动
