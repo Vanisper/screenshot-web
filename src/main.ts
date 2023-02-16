@@ -1062,16 +1062,12 @@ export default class ScreenShot {
     imgSrc: string
   ) {
     const imgContainer = new Image();
-
     imgContainer.src = imgSrc;
     imgContainer.crossOrigin = "Anonymous";
     imgContainer.onload = () => {
       // 装载截图的dom为null则退出
       if (this.screenShotContainer == null) return;
       // 将用户传递的图片绘制到图片容器里
-      console.log(this.drawGraphPosition);
-      console.log(this.screenShotImageController.width);
-      console.log(this.screenShotImageController);
       this.screenShotImageController
         .getContext("2d")
         ?.drawImage(

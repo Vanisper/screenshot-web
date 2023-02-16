@@ -9,11 +9,12 @@ export function saveCanvasToBase64(
   startY: number,
   width: number,
   height: number,
-  quality = 0.75
+  quality = 1
 ) {
   // 获取设备像素比
   const dpr = window.devicePixelRatio || 1;
   // 获取裁剪框区域图片信息
+  // context是整个画布的上下文,这里是截取相应位置
   const img = context.getImageData(
     startX * dpr,
     startY * dpr,
@@ -22,7 +23,7 @@ export function saveCanvasToBase64(
   );
   // 创建canvas标签，用于存放裁剪区域的图片
   const canvas = document.createElement("canvas");
-  // 获取裁剪框区域画布
+  // 获取裁剪框区域画布(实际大小做倍数处理)
   const imgContext = getCanvas2dCtx(canvas, width, height);
   if (imgContext) {
     // 将图片放进canvas中

@@ -1,3 +1,9 @@
+# screenshot-web
+
+基于大佬 [@likaia](https://github.com/likaia/js-screen-shot/) 的项目
+鄙人站在巨人的肩膀上做的一些功能增加
+暂时仅自用
+
 # 项目原介绍
 
 ---

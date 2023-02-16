@@ -14675,13 +14675,14 @@ function saveCanvasToImage(context, startX, startY, width, height) {
  */
 
 function saveCanvasToBase64(context, startX, startY, width, height) {
-  var quality = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0.75;
+  var quality = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 1;
   // 获取设备像素比
   var dpr = window.devicePixelRatio || 1; // 获取裁剪框区域图片信息
+  // context是整个画布的上下文,这里是截取相应位置
 
   var img = context.getImageData(startX * dpr, startY * dpr, width * dpr, height * dpr); // 创建canvas标签，用于存放裁剪区域的图片
 
-  var canvas = document.createElement("canvas"); // 获取裁剪框区域画布
+  var canvas = document.createElement("canvas"); // 获取裁剪框区域画布(实际大小做倍数处理)
 
   var imgContext = getCanvas2dCtx(canvas, width, height);
 
@@ -17208,9 +17209,6 @@ var main_ScreenShot = /*#__PURE__*/function () {
         // 装载截图的dom为null则退出
         if (_this3.screenShotContainer == null) return; // 将用户传递的图片绘制到图片容器里
 
-        console.log(_this3.drawGraphPosition);
-        console.log(_this3.screenShotImageController.width);
-        console.log(_this3.screenShotImageController);
         (_this3$screenShotImag = _this3.screenShotImageController.getContext("2d")) === null || _this3$screenShotImag === void 0 ? void 0 : _this3$screenShotImag.drawImage(imgContainer, 0, 0, _this3.screenShotImageController.width, _this3.screenShotImageController.height); // 初始化截图容器
 
         _this3.initScreenShot(triggerCallback, context, _this3.screenShotImageController);

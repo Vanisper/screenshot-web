@@ -7,7 +7,7 @@
   "types": "dist/type/main.d.ts",
   "publisher": "magicalprogrammer@qq.com",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name screenShotPlugin src/main.ts && del .\\dist\\demo.html && xcopy .\\dist\\ .\\package\\dist\\ /s /y",
+    "build": "vue-cli-service build --target lib --name screenShotPlugin src/main.ts && del .\\dist\\demo.html && xcopy .\\dist\\ .\\package\\dist\\ /s /y && xcopy .\\dist\\ .\\test\\dist\\ /s /y",
     "build-test": "vue-cli-service build --target lib --name screenShotPlugin src/main.ts",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "commit": "git-cz",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/likaia/js-screen-shot.git"
+    "url": "git+https://github.com/Vanisper/screenshot-web.git"
   },
   "keywords": [
     "web-best-screen-shot",
@@ -28,12 +28,12 @@
     "自定义截图",
     "web端自定义截屏"
   ],
-  "author": "likaia",
+  "author": "likaia & Vanisper",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/likaia/js-screen-shot/issues"
+    "url": "https://github.com/Vanisper/screenshot-web/issues",
   },
-  "homepage": "https://github.com/likaia/js-screen-shot#readme",
+  "homepage": "https://github.com/Vanisper/screenshot-web#readme",
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-angular": "^11.0.0",
